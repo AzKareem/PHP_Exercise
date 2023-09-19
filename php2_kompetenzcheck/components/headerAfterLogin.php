@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['user_id']) && isset($_SESSION['name'])) {
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['name'];
+} else {
+
+    header("location: index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +27,18 @@
 
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+            <a class="nav-link active" aria-current="page" href="./logout.php">Log out</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./login.php">Login</a>
+            <a class="nav-link" href="./displayClients.php">Display Clients</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./createClients.php">Create Clients</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">Logged in as <?php echo $user_name; ?></a>
+        </li>
+
     </ul>
 
 </header>

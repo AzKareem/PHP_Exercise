@@ -1,6 +1,7 @@
 <?php
-include_once './components/header.php';
+include_once './components/headerAfterLogin.php';
 require_once './db/db_connect.php';
+
 
 
 if (isset($_GET['comp'])) {
@@ -40,10 +41,10 @@ if (isset($_GET['comp'])) {
             <input name="adress" type="text" class="form-control" id="adress" value="<?= $adress ?>">
 
             <label for="created_by" class="form-label">Created by</label>
-            <input name="created_by" type="text" class="form-control" id="created_by" value="<?= $company_id ?>">
+            <input name="created_by" type="text" class="form-control" id="created_by" value="<?= $created_by ?>">
 
             <label for="created_at" class="form-label">Created at</label>
-            <input name="created_at" type="date" class="form-control" id="created_at" value="<?= $created_by ?>">
+            <input name="created_at" type="date" class="form-control" id="created_at" value="<?= $created_at ?>">
 
             <label for="edited_at" class="form-label">Edited at</label>
             <input name="edited_at" type="date" class="form-control" id="edited_at" value="<?= $edited_at ?>">

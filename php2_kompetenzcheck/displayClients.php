@@ -1,18 +1,25 @@
 <?php
-include_once './components/header.php';
+include_once './components/headerAfterLogin.php';
 require_once './db/db_connect.php';
+if (isset($_SESSION['delete_error'])) {
+    echo '<div class="alert alert-danger">' . $_SESSION['delete_error'] . '</div>';
+    unset($_SESSION['delete_error']);
+} elseif (isset($_SESSION['update_error'])) {
+    echo '<div class="alert alert-danger">' . $_SESSION['update_error'] . '</div>';
+    unset($_SESSION['update_error']);
+}
 
 ?>
 
 <?php
 $sql = $pdo->query("SELECT * FROM clients")->fetchall(PDO::FETCH_ASSOC);
 ?>
-<main>
+<main class="displayClients">
     <?php
     foreach ($sql as $row) : ?>
 
         <form action="./deleteClient.php" method="post" id="item<?php echo $row['company_id']; ?>">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
 
                     <h2><i><?php echo $row['company_name']; ?></i></h2>
@@ -25,7 +32,7 @@ $sql = $pdo->query("SELECT * FROM clients")->fetchall(PDO::FETCH_ASSOC);
                 </div>
                 <div class="card-body">
                     <a href="./updateClients.php?comp=<?= $row['company_id']; ?>" class="btn btn-primary">Update Client</a>
-                    <input type="hidden" name="company_id" value="<?php echo $company_id ?>">
+                    <input type="hidden" name="company_id" value="<?= $row['company_id']; ?>">
                     <button type="submit" class="btn btn-primary">Delete Client</button>
 
                 </div>

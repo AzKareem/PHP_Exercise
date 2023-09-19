@@ -1,37 +1,24 @@
 <?php
-include_once './components/header.php';
+include_once './components/headerAfterLogin.php';
+
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['name'])) {
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['name'];
+} else {
+
+    header("location: index.php");
+    exit;
+}
 ?>
-<main>
-
-    <form action="./createClients.php" method="post">
-        <div class="container">
-            <h2>Add Clients</h2>
-            <label for="company_name" class="form-label">Company Name</label>
-            <input name="company_name" type="text" class="form-control" id="company_name">
-
-            <label for="contact_person" class="form-label">Contact Person</label>
-            <input name="contact_person" type="text" class="form-control" id="contact_person">
-
-            <label for="phone" class="form-label">Phone</label>
-            <input name="phone" type="text" class="form-control" id="phone">
-
-            <label for="adress" class="form-label">Adress</label>
-            <input name="adress" type="text" class="form-control" id="adress">
-
-            <label for="created_by" class="form-label">Created by</label>
-            <input name="created_by" type="text" class="form-control" id="created_by">
-
-            <label for="created_at" class="form-label">Created at</label>
-            <input name="created_at" type="date" class="form-control" id="created_at">
-
-            <label for="edited_at" class="form-label">Edited at</label>
-            <input name="edited_at" type="date" class="form-control" id="edited_at">
-            <br>
-            <button type="submit" class="btn btn-primary" href="./createClients.php">Add</button>
-
-        </div>
-    </form>
+<main class="welcomeText">
+    <h1>Hello, dear <?php echo $user_name; ?>!</h1>
+    <p>We're thrilled to have you as a part of our online community.</p>
+    <p>Explore our website to discover a wide range of exciting features and content.</p>
+    <p>If you have any questions or need assistance, feel free to <a href="contact.php">contact us</a>.</p>
+    <p>Enjoy your stay and have a wonderful day!</p>
 </main>
+
 <?php
 include_once './components/footer.php';
 ?>
