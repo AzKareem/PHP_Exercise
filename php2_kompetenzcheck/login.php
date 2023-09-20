@@ -1,5 +1,14 @@
 <?php
 include_once './components/header.php';
+require_once './db/db_connect.php';
+session_start();
+
+
+if (isset($_SESSION['login_error'])) {
+    echo '<div class="alert alert-danger">' . $_SESSION['login_error'] . '</div>';
+    unset($_SESSION['login_error']);
+}
+
 ?>
 <main>
     <form action="./loginCheck.php" method="post">
@@ -19,6 +28,10 @@ include_once './components/header.php';
 
     </form>
 </main>
+
+
+
+
 <?php
 include_once './components/footer.php';
 ?>

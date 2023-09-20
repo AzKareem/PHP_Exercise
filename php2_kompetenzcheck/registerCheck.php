@@ -1,5 +1,5 @@
 <?php
-include_once './components/header.php';
+session_start();
 require_once './db/db_connect.php';
 
 $name = $_POST['name'];

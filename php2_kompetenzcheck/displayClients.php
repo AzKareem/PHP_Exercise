@@ -42,6 +42,27 @@ $sql = $pdo->query("SELECT * FROM clients")->fetchall(PDO::FETCH_ASSOC);
 </main>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 include_once './components/footer.php';
 ?>

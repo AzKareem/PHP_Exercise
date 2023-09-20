@@ -1,10 +1,6 @@
 <?php
-include_once './components/header.php';
 require_once './db/db_connect.php';
 session_start();
-
-
-
 if ($_POST['email'] != "" || $_POST['password'] != "") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -22,12 +18,14 @@ if ($_POST['email'] != "" || $_POST['password'] != "") {
         header("location: dashboard.php");
         exit;
     } else {
-        echo "Invalid username or password";
-        header("location: index.php");
-        exit;
+        $_SESSION['login_error'] = "Invalid Email or Password please try again.";
+        header("Location: login.php");
+        // exit();
     }
 } else {
-    echo "Invalid input";
+    $_SESSION['login_error'] = "Please input both email and password";
+    header("Location: login.php");
+    exit();
 }
 
 include_once './components/footer.php';

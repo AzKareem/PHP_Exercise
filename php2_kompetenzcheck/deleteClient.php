@@ -1,5 +1,5 @@
 <?php
-include_once './components/headerAfterLogin.php';
+session_start();
 require_once './db/db_connect.php';
 
 

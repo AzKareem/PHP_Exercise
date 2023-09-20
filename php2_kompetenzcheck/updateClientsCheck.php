@@ -1,7 +1,6 @@
 <?php
-include_once './components/headerAfterLogin.php';
 require_once './db/db_connect.php';
-
+session_start();
 $company_id = $_POST['company_id'];
 $stmt = $pdo->prepare("SELECT created_by FROM clients WHERE company_id = ?");
 $stmt->execute([$company_id]);
@@ -49,8 +48,4 @@ if ($client['created_by'] == $_SESSION['user_id']) {
 }
 
 
-
-?>
-<?php
 include_once './components/footer.php';
-?>

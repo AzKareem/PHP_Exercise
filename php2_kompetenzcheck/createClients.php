@@ -17,7 +17,7 @@ include_once './components/headerAfterLogin.php';
             <label for="adress" class="form-label">Adress</label>
             <input name="adress" type="text" class="form-control" id="adress">
 
-           
+
 
             <label for="created_at" class="form-label">Created at</label>
             <input name="created_at" type="date" class="form-control" id="created_at">
@@ -25,7 +25,7 @@ include_once './components/headerAfterLogin.php';
             <label for="edited_at" class="form-label">Edited at</label>
             <input name="edited_at" type="date" class="form-control" id="edited_at">
             <br>
-            <button type="submit" class="btn btn-primary" href="./createClientsCheck.php">Add</button>
+            <button type="submit" class="btn btn-primary" href="./authentifications/createClientsCheck.php">Add</button>
 
         </div>
     </form>
