@@ -8,8 +8,32 @@ if (isset($_SESSION['login_error'])) {
     unset($_SESSION['login_error']);
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT user_id, name, password FROM `users` WHERE `email`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+        // Password is correct
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['name'] = $user['name'];
+
+        header("location: dashboard.php");
+        exit;
+    } else {
+        // Invalid Email or Password
+        $_SESSION['login_error'] = "Invalid Email or Password. Please try again.";
+        header("Location: login.php");
+        exit;
+    }
+}
+
 ?>
-<!-- component -->
+
 <form action="./loginCheck.php" method="post">
 
 
@@ -25,7 +49,7 @@ if (isset($_SESSION['login_error'])) {
                     <div class="divide-y divide-gray-200">
                         <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                             <div class="font-sans relative">
-                                <input autocomplete="off" id="email" name="email" type="text" required class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
+                                <input autocomplete="off" id="email" name="email" type="email" required class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
                                 <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
                             </div>
                             <div class="font-sans relative">
@@ -35,8 +59,8 @@ if (isset($_SESSION['login_error'])) {
                             <div class="font-sans relative">
                                 <button class="bg-blue-800 text-white rounded-md px-2 py-1">Submit</button>
                             </div>
-                            <div class="font-sans relative no-underline hover:underline">
-                                <p class="font-sans block  text-base font-normal">Dont have an account? <a href="./register.php">Register Now</a>.</p>
+                            <div class="font-sans relative">
+                                <p class="font-sans block  text-base font-normal">Dont have an account? <a class="no-underline hover:underline" href="./register.php">Register Now</a>.</p>
                             </div>
                         </div>
                     </div>

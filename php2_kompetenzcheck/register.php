@@ -21,19 +21,19 @@ include_once './components/header.php';
                   <label for="name" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Name</label>
                 </div>
                 <div class="font-sans relative">
-                  <input autocomplete="off" id="email" name="email" type="text" required class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
+                  <input autocomplete="off" id="email" name="email" type="email" required class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
                   <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
                 </div>
                 <div class="font-sans relative">
                   <input autocomplete="off" id="password" name="password" type="password" required class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
                   <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                 </div>
-                <div class="font-sans relative no-underline hover:underline">
-                  <p class="font-sans block  text-base font-normal">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <div class="font-sans relative ">
+                  <p class="font-sans block  text-base font-normal">By creating an account you agree to our <a class="no-underline hover:underline" href="#">Terms & Privacy</a>.</p>
                   <button class="bg-blue-800 text-white rounded-md px-2 py-1 mt-4">Register now</button>
                 </div>
-                <div class="font-sans relative no-underline hover:underline">
-                  <p class="font-sans block  text-base font-normal">Already have an account? <a href="./login.php">Sign in</a>.</p>
+                <div class="font-sans relative ">
+                  <p class="font-sans block  text-base font-normal">Already have an account? <a class="no-underline hover:underline" href="./login.php">Sign in</a>.</p>
                 </div>
               </div>
             </div>

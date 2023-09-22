@@ -35,7 +35,7 @@ $sql = $pdo->query("SELECT * FROM clients")->fetchall(PDO::FETCH_ASSOC);
                     <p class="text-white"><i>Address: <?php echo $row['adress']; ?></i></p>
                     <p class="text-white"><i>Created By: <?php echo $row['created_by']; ?></i></p>
                     <p class="text-white"><i>Created At: <?php echo $row['created_at']; ?></i></p>
-                    <p class="text-white"><i>Edited At: <?php echo $row['edited_at']; ?></i></p><br>
+                    <p class="text-white mb-5"><i>Edited At: <?php echo $row['edited_at']; ?></i></p>
                     <a href="./updateClients.php?comp=<?= $row['company_id']; ?>" class="hover:bg-gray-700 font-sans ml-2 rounded-md px-2 py-1">Update Client</a>
                     <input type="hidden" name="company_id" value="<?= $row['company_id']; ?>">
                     <button type="submit" class="hover:bg-gray-700 font-sans ml-2 rounded-md px-2 py-1">Delete Client</button>
